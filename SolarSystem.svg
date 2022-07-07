@@ -1,0 +1,115 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"[]>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7in" height="7in" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid">
+  <defs>
+    <circle id="tcirc" cx="0" cy="0" r="30" stroke="black" stroke-width="0.4" fill-opacity="1" />
+    <!--
+		<path 
+			d="
+			M cx cy
+			m -r, 0
+			a r,r 0 1,0 (r * 2),0
+			a r,r 0 1,0 -(r * 2),0
+			"
+		/>
+		-->
+    <!-- Define paths -->
+    <path id="circularPathMercury" d="    M 0, 0    m -60, 0    a 60,60 0 1,0 120,0    a 60,60 0 1,0 -120,0    " />
+    <path id="circularPathVenus" d="    M 0, 0    m -90, 0    a 90,90 0 1,0 180,0    a 90,90 0 1,0 -180,0    " />
+    <path id="circularPathEarth" d="    M 0, 0    m -120, 0    a 120,120 0 1,0 240,0    a 120,120 0 1,0 -240,0    " />
+    <path id="circularPathMars" d="    M 0, 0    m -150, 0    a 150,150 0 1,0 300,0    a 150,150 0 1,0 -300,0    " />
+    <!-- Define the objects for the Solar System -->
+    <!-- Define the planets and orbits separately so you can change the orbit orientation -->
+    <g id="Mercury">
+      <!-- Mercury -->
+      <use xlink:href="#tcirc" transform="scale(2,2)" />
+      <g>
+        <animateMotion begin="0s" dur="2.41s" repeatCount="indefinite">
+          <mpath xlink:href="#circularPathMercury" />
+        </animateMotion>
+        <use xlink:href="#tcirc" fill="orange" transform="scale(0.2,0.4)" />
+        <text x="15" y="5" transform="rotate(0)" stroke-width="0.5" stroke="black" font-size="15" fill="orange">
+					Mercury
+				</text>
+      </g>
+    </g>
+    <g id="Venus">
+      <!-- Venus -->
+      <use xlink:href="#tcirc" transform="translate(-10,0) scale(3,3)" />
+      <g>
+        <animateMotion begin="0s" dur="6.15s" repeatCount="indefinite">
+          <mpath xlink:href="#circularPathVenus" />
+        </animateMotion>
+        <use xlink:href="#tcirc" fill="green" transform="translate(-10,0) scale(0.2,0.4)" />
+        <text x="-5" y="-5" transform="rotate(5)" stroke-width="0.5" stroke="black" font-size="15" fill="green">
+					Venus
+				</text>
+      </g>
+    </g>
+    <g id="Earth">
+      <!-- Earth -->
+      <use xlink:href="#tcirc" transform="translate(-15,0) scale(4,4)" />
+      <g>
+        <animateMotion begin="0s" dur="10s" repeatCount="indefinite">
+          <mpath xlink:href="#circularPathEarth" />
+        </animateMotion>
+        <use xlink:href="#tcirc" fill="blue" transform="translate(-15,0) scale(0.2,0.4)" />
+        <text x="-5" y="-5" transform="rotate(-10)" stroke-width="0.5" stroke="black" font-size="15" fill="blue">
+					Earth
+				</text>
+      </g>
+    </g>
+    <g id="Mars">
+      <!-- Mars -->
+      <use xlink:href="#tcirc" transform="translate(-17,0) scale(5,5)" />
+      <g>
+        <animateMotion begin="0s" dur="18.8s" repeatCount="indefinite">
+          <mpath xlink:href="#circularPathMars" />
+        </animateMotion>
+        <use xlink:href="#tcirc" fill="red" transform="translate(-17,0) scale(0.2,0.4)" />
+        <text x="-5" y="-5" transform="rotate(-12)" stroke-width="0.5" stroke="black" font-size="15" fill="red">
+					Mars
+				</text>
+      </g>
+    </g>
+    <!-- The Sun -->
+    <g id="TheSun" fill="yellow" stroke="#DD8800" stroke-width="0.03">
+      <!-- a rotating sun -->
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="10s" fill="remove" repeatCount="indefinite" />
+      <line x1="-0.75" y1="0" x2="0.75" y2="0" />
+      <line x1="-0.75" y1="0" x2="0.75" y2="0" transform="rotate(30)" />
+      <line x1="-0.75" y1="0" x2="0.75" y2="0" transform="rotate(60)" />
+      <line x1="-0.75" y1="0" x2="0.75" y2="0" transform="rotate(90)" />
+      <line x1="-0.75" y1="0" x2="0.75" y2="0" transform="rotate(120)" />
+      <line x1="-0.75" y1="0" x2="0.75" y2="0" transform="rotate(150)" />
+      <circle cx="0" cy="0" r="0.5" fill="yellow" />
+    </g>
+    <!-- Add static text to the Sun -->
+    <g id="SunWithText">
+      <text x="-1" y="-1" stroke-width="0.05" stroke="black" font-size="1.5" fill="yellow">
+				Sun
+			</text>
+      <use xlink:href="#TheSun" />
+    </g>
+  </defs>
+  <!-- Start drawing -->
+  <!-- Draw a white rectangle with a black border to fill the entire image. -->
+  <rect x="0" y="0" width="400" height="400" fill="white" stroke="black" stroke-width="2" />
+  <text x="50" y="50" stroke-width="1.5" stroke="darkblue" font-size="40" fill="lightgreen">The Solar System</text>
+  <!--	<text x="0" y="0" stroke-width="1.5" stroke="black" font-size="15" fill="lightgreen">The Sun</text> -->
+  <!-- The Sun -->
+  <!--<use xlink:href="#TheSun" fill="yellow" transform="translate(200,250)" /> -->
+  <use xlink:href="#SunWithText" fill="yellow" transform="translate(20,0) translate(200,230) scale(10, 10)" />
+  <!-- Apply scaling transform to convert the circles into ellipses -->
+  <g transform="rotate(0,200,230) translate(200,230) scale(1,0.5)">
+    <use xlink:href="#Mercury" fill="none" />
+  </g>
+  <g transform="rotate(-5,200,230) translate(200,230) scale(1,0.5)">
+    <use xlink:href="#Venus" fill="none" />
+  </g>
+  <g transform="rotate(10,200,230) translate(200,230) scale(1,0.5)">
+    <use xlink:href="#Earth" fill="none" />
+  </g>
+  <g transform="rotate(12,200,230) translate(200,230) scale(1,0.5)">
+    <use xlink:href="#Mars" fill="none" />
+  </g>
+</svg>
