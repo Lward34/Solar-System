@@ -1,3 +1,4 @@
 # Solar-System
 SVG2D
-Developed: November 3, 2021
+
+November 3, 2021
